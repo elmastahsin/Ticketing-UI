@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS --->
+    <link
+      rel="stylesheet"
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/libs/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/charts/chartist-bundle/chartist.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/charts/morris-bundle/morris.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css"
+    />
+    <title>METU - Ticketing Project</title>
+  </head>
+
+  <body>
+    <div class="splash-container login-wrapper">
+      <div class="card">
+        <div class="card-header text-center">
+          <img
+            class="logo-img"
+            src="data:image/png;base64,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"
+            height="45"
+            alt="logo"
+          />
+        </div>
+
+        <div class="card-body">
+          <form action="welcome.html">
+            <div class="form-group">
+              <input
+                class="form-control form-control-lg"
+                id="username"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                class="form-control form-control-lg"
+                id="password"
+                type="password"
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" /><span
+                  class="custom-control-label"
+                  >Remember Me</span
+                >
+              </label>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+  <script></script>
+  </body>
+</html>
